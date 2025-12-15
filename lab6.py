@@ -9,7 +9,6 @@ class FileNotFound(Exception):
     """
     pass
 
-
 class FileCorrupted(Exception):
     """
     Custom exception raised when file reading,
@@ -61,7 +60,6 @@ def logged(exception, mode="console"):
 
     return decorator
 
-
 class TextFileHandler:
     """
     Class for working with a text file.
@@ -101,7 +99,6 @@ class TextFileHandler:
         except Exception:
             raise FileCorrupted("Unable to write to the file!")
 
-
     @logged(FileCorrupted, mode="file")
     def append(self, text: str):
         """
@@ -112,7 +109,6 @@ class TextFileHandler:
                 f.write(text)
         except Exception:
             raise FileCorrupted("Unable to append to the file!")
-
 
 if __name__ == "__main__":
     """
