@@ -17,7 +17,6 @@ class FileCorrupted(Exception):
     """
     pass
 
-
 def logged(exception, mode="console"):
     """
     Decorator for exception logging.
@@ -80,7 +79,6 @@ class TextFileHandler:
         if not os.path.exists(path):
             raise FileNotFound(f"File '{path}' does not exist!")
 
-
     @logged(FileCorrupted, mode="file")
     def read(self):
         """
@@ -91,7 +89,6 @@ class TextFileHandler:
                 return f.read()
         except Exception:
             raise FileCorrupted("Unable to read the file!")
-
 
     @logged(FileCorrupted, mode="console")
     def write(self, text: str):
